@@ -1,0 +1,15 @@
+import React from 'react'
+import { HeroHeader } from '@/components/header'
+
+export default function BlogsLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+        <HeroHeader />
+        {children}
+    </>
+  )
+}
