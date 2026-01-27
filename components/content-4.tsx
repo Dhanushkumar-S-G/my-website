@@ -27,10 +27,11 @@ export default function ContentSection() {
                     </div>
                     
                     <div className="space-y-6">
-                        <p>Lyra is evolving to be more than just the models. It supports an entire ecosystem — from products to the APIs and platforms helping developers and businesses innovate.</p>
+                        <p>I am a software engineer with a strong focus on <span className="font-bold">distributed systems and databases</span>. I currently work as a Software Development Engineer at <span className="" style={{color:"#9441F5"}}  ><Link href="https://www.amazon.com">Amazon</Link></span>, where I design and build network monitoring systems that operate at scale.</p>
                         <p>
-                            Tailark. <span className="font-bold">It supports an entire ecosystem</span> — from products innovate. Sit minus, quod debitis autem quia aspernatur delectus impedit modi, neque non id ad dignissimos? Saepe deleniti perferendis beatae.
+                            Previously, I interned at a startup called <span className="" style={{color:"#9441F5"}}  ><Link href="https://www.appviewx.com">AppViewX</Link></span> as part of the Install and Upgrade team. I worked on building an Ansible-like automation tool that uses JSON instead of YAML, designed to validate VM and machine prerequisites before customer installations.
                         </p>
+                        <p>I enjoy diving deep into engineering problems, reasoning about system behavior from first principles, and designing solutions that are robust, scalable, and operationally sound.</p>
                         
 
                         <AnimatedShinyButton>Move about me</AnimatedShinyButton>
