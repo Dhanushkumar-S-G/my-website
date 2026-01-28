@@ -21,6 +21,7 @@
   "registries": {
     "@tailark": "https://tailark.com/r/{name}.json",
     "@eldoraui": "https://eldoraui.site/r/{name}.json",
-    "@aceternity": "https://ui.aceternity.com/registry/{name}.json"
+    "@aceternity": "https://ui.aceternity.com/registry/{name}.json",
+    "@8starlabs-ui": "https://ui.8starlabs.com/r/{name}.json"
   }
 }
