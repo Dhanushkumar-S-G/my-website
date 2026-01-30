@@ -5,7 +5,6 @@ import { TextEffect } from '@/components/ui/text-effect'
 import { TextShimmer } from './ui/text-shimmer'
 import { h5 } from 'motion/react-client'
 import { AnimatedShinyButton } from './ui/animated-shiny-button'
-import { PointerHighlight } from './ui/pointer-highlight'
 
 
 export default function ContentSection() {

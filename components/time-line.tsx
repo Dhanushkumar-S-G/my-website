@@ -1,3 +1,4 @@
+"use client";
 import Timeline, {
   TimelineItem,
   TimelineItemDate,
@@ -5,6 +6,7 @@ import Timeline, {
   TimelineItemDescription
 } from "@/components/ui/timeline";
 import { Tooltip } from "./ui/tooltip-card";
+import { useMediaQuery } from "@mantine/hooks";
 
 const timelineData = [
   {
@@ -103,9 +105,10 @@ const months = [
 // };
 
 
-
 export function TimelineNoCardsDemo() {
+  const isMobile = useMediaQuery("(max-width: 768px)");
   return (
+    isMobile ? <></> :
     <Timeline orientation="vertical">
       {timelineData.map((item, idx) => (
         <TimelineItem key={idx} variant={item.variant}>
