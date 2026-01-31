@@ -78,7 +78,7 @@ export const HeroHeader = () => {
                                 </ul>
                             </div>
                             <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                                <Button
+                                {/* <Button
                                     asChild
                                     variant="outline"
                                     size="sm"
@@ -94,7 +94,7 @@ export const HeroHeader = () => {
                                     <Link href="https://topmate.io/dhanush_kumar11/">
                                         <span>Book a call</span>
                                     </Link>
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                     </div>
