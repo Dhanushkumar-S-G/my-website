@@ -16,10 +16,7 @@ export default function Blogs() {
           date="15 Mar 2025"
           url="https://dhanushkumarsg.substack.com/p/cli-vs-repl"
         />
-        
       </div>
-      
-      
     </div>
   );
 }
