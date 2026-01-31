@@ -3,6 +3,7 @@ import { CardStack } from "@/components/ui/card-stack";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { ExternalLink } from 'lucide-react';
+import { Card as CardType } from "@/components/ui/card-stack";
 export function Inspirations() {
   return (
     <div className="h-auto flex items-center justify-center w-full">
@@ -59,4 +60,4 @@ const CARDS = [
       </p>
     ),
   }
-];
+] as CardType [];

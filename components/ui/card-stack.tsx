@@ -4,9 +4,9 @@ import { motion } from "motion/react";
 
 let interval: any;
 
-type Card = {
+export type Card = {
   id: number;
-  name: string;
+  name: React.ReactNode;
   designation: string;
   content: React.ReactNode;
 };
