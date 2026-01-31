@@ -28,22 +28,22 @@ const thoughts = [
 ];
 
 
-
-
 export default function MyThoughtsPage() {
-    return (
-        <main className="flex flex-col items-center justify-center py-20">
-            <h1 className="text-4xl font-bold">My Thoughts</h1>
-            <p className="mt-4 text-sm text-muted-foreground">
-                Sometimes I spend some time reflecting on my experiences and sharing them here.
-            </p>
-            <div className="mt-10 grid w-full max-w-3xl gap-6">
-                {thoughts.map((thought, index) => (
-                    <Card_1 key={index}>
-                        {thought}
-                    </Card_1>
-                ))}
-            </div>
-        </main>
-    )
+  return (
+    <main className="flex flex-col py-20 w-full max-w-6xl mx-auto overflow-x-hidden">
+      <h1 className="text-4xl font-bold text-center">My Thoughts</h1>
+
+      <p className="mt-4 mx-5 text-center text-sm text-muted-foreground">
+        Sometimes I spend some time reflecting on my experiences and sharing them here.
+      </p>
+
+      <div className="mt-10 grid w-full max-w-3xl mx-auto px-4 gap-6">
+        {thoughts.map((thought, index) => (
+          <Card_1 key={index}>
+            {thought}
+          </Card_1>
+        ))}
+      </div>
+    </main>
+  );
 }

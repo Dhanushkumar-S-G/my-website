@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeroHeader } from '@/components/header'
+import FooterSection from '@/components/footer';
 
 export default function BlogsLayout({
   children,
@@ -10,6 +11,7 @@ export default function BlogsLayout({
     <>
         <HeroHeader />
         {children}
+        <FooterSection />
     </>
   )
 }

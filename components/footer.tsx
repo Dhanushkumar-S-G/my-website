@@ -79,7 +79,7 @@ export default function FooterSection() {
                         </svg>
                     </Link>
                 </div>
-                <span className="text-muted-foreground block text-center text-sm">Made with ❤️</span>
+                <span className="text-muted-foreground block text-center text-sm">Made with ❤️ by Dhanush</span>
             </div>
         </footer>
     )

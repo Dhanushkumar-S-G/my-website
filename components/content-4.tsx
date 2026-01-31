@@ -26,7 +26,7 @@ export default function ContentSection() {
                     </div>
                     
                     <div className="space-y-6">
-                        <p>I am a software engineer with a strong focus on <span className="font-bold">distributed systems and databases</span>. I currently work as a Software Development Engineer at <span className="" style={{color:"#9441F5"}}  ><Link href="https://www.amazon.com">Amazon</Link></span>, where I design and build network monitoring systems that operate at scale.</p>
+                        <p>I am a software engineer with a strong interest on <span className="font-bold">distributed systems and databases</span>. I currently work as a Software Development Engineer at <span className="" style={{color:"#9441F5"}}  ><Link href="https://www.amazon.com">Amazon</Link></span>, where I design and build network monitoring systems that operate at scale.</p>
                         <p>
                             Previously, I interned at a startup called <span className="" style={{color:"#9441F5"}}  ><Link href="https://www.appviewx.com">AppViewX</Link></span> as part of the Install and Upgrade team where I developed a <span className="font-bold">lightweight prerequisite assessment tool</span> for Kubernetes cluster nodes that checks if tools and
 configurations are ready, reports issues, and suggests fixes, reducing installation issues by up to <span className="font-bold">65%</span>.

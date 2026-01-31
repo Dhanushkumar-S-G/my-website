@@ -9,29 +9,14 @@ export default function Blogs() {
       <div className="grid grid-cols-1 gap-5">
         < Inspirations />
         <BlogCard
-          title="Building Modern UIs: A Deep Dive into Shadcn and React Components"
-          description="Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques."
-          author="Sarah Chen"
-          date="15 Feb 2024"
+          category={["Tools", "Software"]}
+          title="CLI vs REPL"
+          description="In this blog, we explore the differences between Command Line Interfaces (CLI) and Read-Eval-Print Loops (REPL)."
+          author="Dhanushkumar"
+          date="15 Mar 2025"
+          url="https://dhanushkumarsg.substack.com/p/cli-vs-repl"
         />
-        <BlogCard
-          title="Building Modern UIs: A Deep Dive into Shadcn and React Components"
-          description="Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques."
-          author="Sarah Chen"
-          date="15 Feb 2024"
-        />
-        <BlogCard
-          title="Building Modern UIs: A Deep Dive into Shadcn and React Components"
-          description="Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques."
-          author="Sarah Chen"
-          date="15 Feb 2024"
-        />
-        <BlogCard
-          title="Building Modern UIs: A Deep Dive into Shadcn and React Components"
-          description="Join us for an in-depth exploration of building modern user interfaces using shadcn/ui and React. Learn best practices and advanced techniques."
-          author="Sarah Chen"
-          date="15 Feb 2024"
-        />
+        
       </div>
       
       

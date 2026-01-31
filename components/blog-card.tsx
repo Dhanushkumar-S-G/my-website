@@ -1,23 +1,24 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge"
 
 type BlogCardProps = {
-  category?: string
-  subCategory?: string
+  category?: string[]
   title: string
   description: string
   author: string
   date: string
+  url: string
 }
 
 
 export function BlogCard({
-  category = "WEB DESIGN",
-  subCategory = "UI DEVELOPMENT",
+  category,
   title,
   description,
   author,
   date,
+  url,
 }: BlogCardProps) {
   return (
     <div className="grid grid-cols-1 gap-8 rounded-2xl border bg-background p-8 mx-4 md:mx-0">
@@ -25,9 +26,12 @@ export function BlogCard({
       <div className="flex flex-col justify-between">
         <div>
           {/* Categories */}
-          <div className="mb-4 flex items-center gap-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
-            <span>{category}</span>
-            <span>{subCategory}</span>
+          <div className="mb-4 flex items-center gap-1">
+            {category?.map((cat, index) => (
+              <Badge key={index} variant="secondary">
+                {cat}
+              </Badge>
+            ))}
           </div>
 
           {/* Title */}
@@ -50,7 +54,7 @@ export function BlogCard({
           </p>
 
           <Link
-            href="/blog/shadcn-react"
+            href={url}
             className="
               group inline-flex cursor-pointer items-center gap-2
               text-sm font-medium

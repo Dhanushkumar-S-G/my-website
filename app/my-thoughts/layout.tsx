@@ -1,5 +1,6 @@
 import React from 'react'
 import { HeroHeader } from '@/components/header'
+import FooterSection from '@/components/footer';
 
 
 export default function MyThoughtsLayout({
@@ -11,6 +12,7 @@ export default function MyThoughtsLayout({
     <>
         <HeroHeader />
         {children}
+        <FooterSection />
     </>
   )
 }
