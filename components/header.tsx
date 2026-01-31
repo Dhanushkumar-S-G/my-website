@@ -10,7 +10,7 @@ const menuItems = [
     { name: 'Blogs', href: '/blogs' },
     { name: 'Bookshelf', href: '/book-shelf' },
     { name: 'Papershelf', href: '/paper-shelf' },
-    { name: 'About', href: '/' },
+    { name: 'My thoughts', href: '/my-thoughts' },
 ]
 
 export const HeroHeader = () => {
