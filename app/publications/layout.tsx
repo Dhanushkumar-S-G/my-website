@@ -4,7 +4,7 @@ import { HeroHeader } from '@/components/header'
 import FooterSection from '@/components/footer';
 
 
-export default function BlogsLayout({
+export default function PublicationsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

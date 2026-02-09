@@ -10,6 +10,7 @@ const menuItems = [
     { name: 'Home', href: '/' },
     { name: 'Blogs', href: '/blogs' },
     { name: 'Bookshelf', href: '/book-shelf' },
+    { name: 'My Publications', href: '/publications' },
     { name: 'Papershelf', href: '/paper-shelf' },
     { name: 'My thoughts', href: '/my-thoughts' },
 ]

@@ -1,5 +1,8 @@
 
+import { MultiAuthorCard } from "@/components/multi-author-card";
 import Image from "next/image";
+
+
 
 export default function Papers() {
   return (
