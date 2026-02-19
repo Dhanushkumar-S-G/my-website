@@ -34,7 +34,7 @@ configurations are ready, reports issues, and suggests fixes, reducing installat
                         <p>I enjoy diving deep into engineering problems, reasoning about system behavior from first principles, and designing solutions that are robust, scalable, and operationally sound.</p>
                         
 
-                        <AnimatedShinyButton>Move about me</AnimatedShinyButton>
+                        <AnimatedShinyButton url='/more-about-me'>Move about me</AnimatedShinyButton>
                     </div>
                 </div>
             </div>
