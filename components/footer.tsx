@@ -11,12 +11,12 @@ const links = [
         href: '/book-shelf',
     },
     {
-        title: 'Papershelf',
-        href: '/paper-shelf',
+        title: 'Publications',
+        href: '/publications',
     },
     {
         title: 'About',
-        href: '/',
+        href: '/more-about-me',
     },
 ]
 
@@ -31,13 +31,14 @@ export default function FooterSection() {
                     <Logo />
                 </Link>
 
-                <div className="my-8 flex flex-wrap justify-center gap-6 text-sm">
+                <div className="relative my-8 flex flex-wrap justify-center gap-6 text-sm">
                     {links.map((link, index) => (
                         <Link
-                            key={index}
-                            href={link.href}
-                            className="text-muted-foreground hover:text-primary block duration-150">
-                            <span>{link.title}</span>
+                        key={index}
+                        href={link.href}
+                        className="relative z-10 cursor-pointer text-muted-foreground hover:text-primary transition-colors duration-150"
+                        >
+                        {link.title}
                         </Link>
                     ))}
                 </div>
