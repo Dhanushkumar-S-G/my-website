@@ -23,7 +23,7 @@ export function MoreAboutMeContent() {
 
             </p>
 
-            <div className="text-justify prose prose-sm dark:prose-invert leading-relaxed">
+            <div className=" prose prose-sm dark:prose-invert leading-relaxed">
               {item?.image && (
                 <Image src={item.image} alt="blog thumbnail" width={1000} height={1000} className="rounded-lg mb-10 object-cover" />
               
