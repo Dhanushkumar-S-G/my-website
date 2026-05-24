@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 // Utility function to convert a title into a URL-friendly slug
-const generateSlug = (title) => {
+const generateSlug = (title: string) => {
   return title
     .toLowerCase()
     .trim()
