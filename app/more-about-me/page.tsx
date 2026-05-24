@@ -1,44 +1,108 @@
 "use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
+export default function BlogPost() {
+  const [activeId, setActiveId] = useState("");
 
-export default function MoreAboutMe() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-100px 0px -60% 0px" }
+    );
+
+    const sections = document.querySelectorAll("section[id^='section-']");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
   return (
-    <div className="flex flex-col items-center justify-center py-20 max-w-6xl mx-auto">
-      <h1 className="text-4xl font-bold">More About Me</h1>
-      <MoreAboutMeContent />
-    </div>
-  );
-}
+    // Removed 'min-h-screen' and 'bg-background' so the parent background shows through
+    <div className="w-full text-foreground selection:bg-primary/30 antialiased font-sans">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-12 lg:gap-24">
+        
+        {/* LEFT COLUMN: Docs-Style Tracker */}
+        <aside className="hidden md:block">
+          <div className="sticky top-24">
+            <h3 className="text-sm font-semibold text-foreground mb-4 tracking-tight">
+              On this page
+            </h3>
+            <nav className="flex flex-col space-y-2.5 border-l border-border/60">
+              {dummyContent.map((item, index) => {
+                const sectionId = `section-${index}`;
+                const isActive = activeId === sectionId;
 
-
-export function MoreAboutMeContent() {
-  return (
-      <div className="px-2 max-w-2xl mx-auto antialiased pt-4 relative">
-        {dummyContent.map((item, index) => (
-          <div key={`content-${index}`} className="mb-10">
-          
-            <p className="text-lg font-semibold mb-4">
-              {item.title}
-
-            </p>
-
-            <div className=" prose prose-sm dark:prose-invert leading-relaxed">
-              {item?.image && (
-                <Image src={item.image} alt="blog thumbnail" width={1000} height={1000} className="rounded-lg mb-10 object-cover" />
-              
-              )}
-              {item.description}
-            </div>
+                return (
+                  <a
+                    key={`nav-${index}`}
+                    href={`#${sectionId}`}
+                    className={`pl-4 text-[13px] leading-5 transition-colors duration-200 ${
+                      isActive
+                        ? "text-foreground font-medium border-l border-primary -ml-[1px]"
+                        : "text-muted-foreground hover:text-foreground"
+                    }`}
+                  >
+                    <span className="line-clamp-2">{item.title}</span>
+                  </a>
+                );
+              })}
+            </nav>
           </div>
-        ))}
+        </aside>
+
+        {/* RIGHT COLUMN: Main Content Area */}
+        <main className="max-w-[700px]">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-8 text-foreground">
+            More About Me
+          </h1>
+
+          <div className="space-y-24">
+            {dummyContent.map((item, index) => (
+              <section 
+                key={`content-${index}`} 
+                id={`section-${index}`}
+                className="scroll-mt-28" 
+              >
+                <h2 className="text-2xl sm:text-[26px] font-semibold tracking-tight text-foreground mb-6">
+                  {item.title}
+                </h2>
+                
+                <div className="prose prose-neutral dark:prose-invert max-w-none 
+                                prose-p:leading-7 prose-p:mb-6 prose-p:text-[15px] sm:prose-p:text-base 
+                                prose-p:text-muted-foreground/90
+                                prose-headings:font-semibold prose-headings:tracking-tight">
+                  {item?.image && (
+                    <div className="my-8 rounded-lg overflow-hidden border border-border/50 bg-muted/10 shadow-sm">
+                      <Image 
+                        src={item.image} 
+                        alt={item.title} 
+                        width={1000} 
+                        height={600} 
+                        className="w-full object-cover m-0" 
+                      />
+                    </div>
+                  )}
+                  {item.description}
+                </div>
+              </section>
+            ))}
+          </div>
+        </main>
       </div>
+    </div>
   );
 }
 
 const dummyContent = [
   {
-    title: "My College Journey @ Kumaraguru College of Technology",
+    title: "The Story Behind My College Years",
     description: (
       <>
         <p>
@@ -104,7 +168,7 @@ const dummyContent = [
       "/appviewx.png",
   },
   {
-    title: "My Master's Journey @ Dublin City University",
+    title: "My Master's at Dublin City University",
     description: (
       <>
         <p>

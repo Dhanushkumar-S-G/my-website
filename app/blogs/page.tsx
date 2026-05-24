@@ -11,7 +11,7 @@ export default function Blogs() {
     <main className="flex flex-col items-center justify-center py-20 max-w-6xl mx-auto">
       <h1 className="text-4xl font-bold py-5">My Blogs</h1>
       <div className="grid grid-cols-1 gap-5">
-        < Inspirations />
+        {/* < Inspirations /> */}
         <BlogCard
           category={["Tools", "Software"]}
           title="CLI vs REPL"

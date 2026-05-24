@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleTagManager } from '@next/third-parties/google';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
