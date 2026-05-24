@@ -2,6 +2,16 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
+// Utility function to convert a title into a URL-friendly slug
+const generateSlug = (title) => {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove non-word characters (like @, etc)
+    .replace(/[\s_-]+/g, "-") // Replace spaces and underscores with a single hyphen
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+};
+
 export default function BlogPost() {
   const [activeId, setActiveId] = useState("");
 
@@ -17,26 +27,28 @@ export default function BlogPost() {
       { rootMargin: "-100px 0px -60% 0px" }
     );
 
-    const sections = document.querySelectorAll("section[id^='section-']");
+    // We now select by class name since the IDs are dynamic words instead of "section-X"
+    const sections = document.querySelectorAll(".blog-section");
     sections.forEach((section) => observer.observe(section));
 
     return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
   return (
-    // Removed 'min-h-screen' and 'bg-background' so the parent background shows through
     <div className="w-full text-foreground selection:bg-primary/30 antialiased font-sans">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)] gap-12 lg:gap-24">
         
         {/* LEFT COLUMN: Docs-Style Tracker */}
         <aside className="hidden md:block">
-          <div className="sticky top-24">
+          {/* Added a subtle backdrop-blur so the text remains readable if it scrolls over your dot pattern */}
+          <div className="sticky top-24 p-4 -ml-4 rounded-xl bg-background/50 backdrop-blur-md border border-transparent hover:border-border/50 transition-colors duration-300">
             <h3 className="text-sm font-semibold text-foreground mb-4 tracking-tight">
               On this page
             </h3>
             <nav className="flex flex-col space-y-2.5 border-l border-border/60">
               {dummyContent.map((item, index) => {
-                const sectionId = `section-${index}`;
+                // Generate the slug from the title
+                const sectionId = generateSlug(item.title);
                 const isActive = activeId === sectionId;
 
                 return (
@@ -59,40 +71,45 @@ export default function BlogPost() {
 
         {/* RIGHT COLUMN: Main Content Area */}
         <main className="max-w-[700px]">
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-8 text-foreground">
+          <h1 className="text-4xl font-extrabold tracking-tight mb-6 text-foreground text-center">
             More About Me
           </h1>
 
-          <div className="space-y-24">
-            {dummyContent.map((item, index) => (
-              <section 
-                key={`content-${index}`} 
-                id={`section-${index}`}
-                className="scroll-mt-28" 
-              >
-                <h2 className="text-2xl sm:text-[26px] font-semibold tracking-tight text-foreground mb-6">
-                  {item.title}
-                </h2>
-                
-                <div className="prose prose-neutral dark:prose-invert max-w-none 
-                                prose-p:leading-7 prose-p:mb-6 prose-p:text-[15px] sm:prose-p:text-base 
-                                prose-p:text-muted-foreground/90
-                                prose-headings:font-semibold prose-headings:tracking-tight">
-                  {item?.image && (
-                    <div className="my-8 rounded-lg overflow-hidden border border-border/50 bg-muted/10 shadow-sm">
-                      <Image 
-                        src={item.image} 
-                        alt={item.title} 
-                        width={1000} 
-                        height={600} 
-                        className="w-full object-cover m-0" 
-                      />
-                    </div>
-                  )}
-                  {item.description}
-                </div>
-              </section>
-            ))}
+          <div className="space-y-12">
+            {dummyContent.map((item, index) => {
+              // Generate the same slug for the section ID
+              const sectionId = generateSlug(item.title);
+
+              return (
+                <section 
+                  key={`content-${index}`} 
+                  id={sectionId}
+                  className="blog-section scroll-mt-28" 
+                >
+                  <h2 className="text-2xl sm:text-[26px] font-semibold tracking-tight text-foreground mb-6">
+                    {item.title}
+                  </h2>
+                  
+                  <div className="prose prose-neutral dark:prose-invert max-w-none 
+                                  prose-p:leading-7 prose-p:mb-6 prose-p:text-[15px] sm:prose-p:text-base 
+                                  text-muted-foreground/80
+                                  prose-headings:font-semibold prose-headings:tracking-tight">
+                    {item?.image && (
+                      <div className="my-8 rounded-lg overflow-hidden border border-border/50 bg-muted/10 shadow-sm">
+                        <Image 
+                          src={item.image} 
+                          alt={item.title} 
+                          width={1000} 
+                          height={600} 
+                          className="w-full object-cover m-0" 
+                        />
+                      </div>
+                    )}
+                    {item.description}
+                  </div>
+                </section>
+              );
+            })}
           </div>
         </main>
       </div>
