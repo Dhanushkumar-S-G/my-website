@@ -2,6 +2,7 @@ import { Card_1 } from "@/components/cards/card-1";
 
 const thoughts = [
   "Pressure is Privileage",
+  "Instagram will not allow you to live in the present, it will always make you think like \"one day I will do this\"",
   "What is trust ? It is your ability to become vulnerable in front of them about someone or something",
   "What is maturity? Things that once excited you, are no more exciting",
   "I think we all need our parents to say go and do what ever you want( pathukalam )in our early 20s.",
