@@ -2,7 +2,7 @@ import { getBlogBySlug, generateSlug } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { Badge } from "@/components/ui/badge";
-import { TocSidebar } from "@/components/toc-sidebar"; // Import Client Component
+import { TocSidebar } from "@/components/toc-sidebar";
 
 import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -85,18 +85,49 @@ export default async function BlogPostPage({ params }: PostPageProps) {
     notFound();
   }
 
+  const finalComponents = {
+    ...mdxComponents,
+    ul: (props: any) => (
+      <ul className="my-6 space-y-3 pl-1 text-[15px] sm:text-base text-muted-foreground/90" {...props} />
+    ),
+    ol: (props: any) => (
+      <ol className="my-6 space-y-3 pl-1 text-[15px] sm:text-base text-muted-foreground/90 [counter-reset:blog-counter]" {...props} />
+    ),
+    li: (props: any) => {
+      const isOrdered = props.parentName === "ol";
+      if (isOrdered) {
+        return (
+          <li 
+            className="relative pl-8 [counter-increment:blog-counter] before:absolute before:left-0 before:top-[3px] before:flex before:h-4.5 before:w-5 before:items-center before:justify-center before:rounded before:bg-purple-500/10 before:text-[11px] before:font-mono before:font-bold before:text-purple-400 before:border before:border-purple-500/20 before:content-[counter(blog-counter)]" 
+            {...props} 
+          />
+        );
+      }
+      // FIXED DESIGN: Changed 'before:bg-purple-400' to 'before:bg-white' for pristine white dots
+      return (
+        <li className="relative pl-6 before:absolute before:left-1.5 before:top-[10px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-white before:content-['']" {...props} />
+      );
+    },
+    svg: (props: any) => {
+      const cleanedProps = { ...props };
+      if (cleanedProps["stop-color"]) {
+        cleanedProps.stopColor = cleanedProps["stop-color"];
+        delete cleanedProps["stop-color"];
+      }
+      return <svg {...cleanedProps} />;
+    }
+  };
+
   const { frontmatter, content, toc } = post;
 
   return (
     <div className="w-full text-foreground antialiased font-sans min-h-screen">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20 grid grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] gap-12 lg:gap-24">
         
-        {/* LEFT COLUMN: Fixed Scroll client-active tracking component */}
         <aside className="hidden md:block">
           <TocSidebar toc={toc} />
         </aside>
 
-        {/* RIGHT COLUMN: Blog Content Display Stream */}
         <main className="max-w-[720px] w-full justify-self-start">
           <div className="space-y-4 mb-12 border-b border-border/40 pb-8">
             <div className="flex flex-wrap gap-1.5">
@@ -125,7 +156,7 @@ export default async function BlogPostPage({ params }: PostPageProps) {
           <div className="w-full">
             <MDXRemote 
               source={content} 
-              components={mdxComponents}
+              components={finalComponents}
               options={{
                 mdxOptions: {
                   rehypePlugins: [

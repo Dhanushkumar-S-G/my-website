@@ -27,7 +27,7 @@ export default async function BlogsPage() {
                 title={blog.title}
                 description={blog.description}
                 // Fallback to "Anonymous" or a default name if omitted in markdown
-                author={blog.author || "SDE"} 
+                author={blog.author || "Dhanushkumar S G"} 
                 // Format the date to look polished (e.g., "May 24, 2026")
                 date={new Date(blog.date).toLocaleDateString("en-US", {
                   month: "long",

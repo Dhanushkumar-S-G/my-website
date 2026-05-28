@@ -42,7 +42,7 @@ export async function getBlogBySlug(slug: string) {
         title: frontmatter.title || "Untitled Post",
         date: frontmatter.date || new Date().toISOString(),
         description: frontmatter.description || "",
-        author: frontmatter.author || "SDE",
+        author: frontmatter.author || "Dhanushkumar S G",
         category: frontmatter.category || [],
         image: frontmatter.image || null,
       }, 
@@ -75,7 +75,7 @@ export async function getAllBlogs() {
         title: data.title || "Untitled Post",
         date: data.date || new Date().toISOString(),
         description: data.description || "",
-        author: data.author || "SDE",
+        author: data.author || "Dhanushkumar S G",
         category: data.category || [],
         image: data.image || null,
       };
