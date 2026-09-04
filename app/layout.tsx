@@ -39,10 +39,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <div className="relative min-h-screen">
           <div className="absolute inset-0 -z-10 
-            bg-[radial-gradient(circle,_black_1px,_transparent_1px)] 
-            dark:bg-[radial-gradient(circle,_white_1px,_transparent_1px)] 
-            opacity-15 
-            [background-size:20px_20px]"
+            bg-[radial-gradient(circle,_var(--foreground)_1px,_transparent_1px)] 
+            opacity-[0.09] 
+            [background-size:22px_22px]"
           />
           {children}
         </div>

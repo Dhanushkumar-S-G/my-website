@@ -39,17 +39,17 @@ export function AnimatedShinyButton({
 
         @property --gradient-shine {
           syntax: "<color>";
-          initial-value: white;
+          initial-value: #ece8dd;
           inherits: false;
         }
 
         .shiny-cta,
         .shiny-cta-link {
-          --shiny-cta-bg: #000000;
-          --shiny-cta-bg-subtle: #1a1818;
-          --shiny-cta-fg: #ffffff;
-          --shiny-cta-highlight: #9441F5;
-          --shiny-cta-highlight-subtle: #BC04F0;
+          --shiny-cta-bg: var(--surface);
+          --shiny-cta-bg-subtle: var(--border);
+          --shiny-cta-fg: var(--foreground);
+          --shiny-cta-highlight: var(--brand);
+          --shiny-cta-highlight-subtle: var(--brand-muted);
           --animation: gradient-angle linear infinite;
           --duration: 3s;
           --shadow-size: 2px;
@@ -122,7 +122,7 @@ export function AnimatedShinyButton({
           height: var(--size);
           background: radial-gradient(
               circle at var(--position) var(--position),
-              white calc(var(--position) / 4),
+              var(--foreground) calc(var(--position) / 4),
               transparent 0
             )
             padding-box;
@@ -151,8 +151,8 @@ export function AnimatedShinyButton({
             var(--shiny-cta-highlight),
             transparent
           );
-          mask-image: radial-gradient(circle at bottom, transparent 40%, black);
-          opacity: 0.6;
+          mask-image: radial-gradient(circle at bottom, transparent 45%, black);
+          opacity: 0.32;
         }
 
         .shiny-cta span,
@@ -165,7 +165,7 @@ export function AnimatedShinyButton({
           --size: calc(100% + 1rem);
           width: var(--size);
           height: var(--size);
-          box-shadow: inset 0 -1ex 2rem 4px var(--shiny-cta-highlight);
+          box-shadow: inset 0 -1ex 1.6rem 2px var(--shiny-cta-highlight);
           opacity: 0;
           transition: opacity var(--transition);
           animation: calc(var(--duration) * 1.5) breathe linear infinite;
@@ -227,17 +227,6 @@ export function AnimatedShinyButton({
           }
         }
 
-        /* Light theme overrides */
-        @media (prefers-color-scheme: light) {
-          .shiny-cta,
-          .shiny-cta-link {
-            --shiny-cta-bg: #ffffff;
-            --shiny-cta-bg-subtle: #f0f0f0;
-            --shiny-cta-fg: #000000;
-            --shiny-cta-highlight: #06b6d4;
-            --shiny-cta-highlight-subtle: #0891b2;
-          }
-        }
       `}</style>
 
       {url ? (

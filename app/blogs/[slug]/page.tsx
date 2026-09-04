@@ -12,8 +12,9 @@ interface PostPageProps {
 }
 
 const prettyCodeOptions = {
-  theme: "github-dark",
-  keepBackground: true,
+  // Warm charcoal/amber syntax palette to match the site theme
+  theme: "vesper",
+  keepBackground: false,
 };
 
 const getTextFromChildren = (children: any): string => {
@@ -64,15 +65,15 @@ const mdxComponents = {
     <p className="text-[15px] sm:text-base leading-7 text-muted-foreground/90 mb-6 font-sans antialiased" {...props} />
   ),
   pre: (props: any) => (
-    <pre className="my-6 overflow-x-auto rounded-xl border border-border/60 bg-[#0d1117] p-4 text-sm font-mono leading-6 shadow-md" {...props} />
+    <pre className="my-6 overflow-x-auto rounded-xl border border-border/60 bg-surface p-4 text-sm font-mono leading-6 shadow-md" {...props} />
   ),
   code: (props: any) => {
     const isBlock = props["data-theme"] !== undefined || props.className?.includes("language-");
     if (isBlock) {
-      return <code className="font-mono text-[13px] text-zinc-100" {...props} />;
+      return <code className="font-mono text-[13px] text-foreground" {...props} />;
     }
     return (
-      <code className="rounded bg-muted/80 px-1.5 py-0.5 font-mono text-[13px] text-emerald-400 dark:text-emerald-300 font-medium" {...props} />
+      <code className="rounded bg-muted/80 px-1.5 py-0.5 font-mono text-[13px] text-brand font-medium" {...props} />
     );
   },
 };
@@ -98,14 +99,14 @@ export default async function BlogPostPage({ params }: PostPageProps) {
       if (isOrdered) {
         return (
           <li 
-            className="relative pl-8 [counter-increment:blog-counter] before:absolute before:left-0 before:top-[3px] before:flex before:h-4.5 before:w-5 before:items-center before:justify-center before:rounded before:bg-purple-500/10 before:text-[11px] before:font-mono before:font-bold before:text-purple-400 before:border before:border-purple-500/20 before:content-[counter(blog-counter)]" 
+            className="relative pl-8 [counter-increment:blog-counter] before:absolute before:left-0 before:top-[3px] before:flex before:h-4.5 before:w-5 before:items-center before:justify-center before:rounded before:bg-brand/15 before:text-[11px] before:font-mono before:font-bold before:text-brand before:border before:border-brand/30 before:content-[counter(blog-counter)]" 
             {...props} 
           />
         );
       }
-      // FIXED DESIGN: Changed 'before:bg-purple-400' to 'before:bg-white' for pristine white dots
+      // Bullet dots use the brand yellow
       return (
-        <li className="relative pl-6 before:absolute before:left-1.5 before:top-[10px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-white before:content-['']" {...props} />
+        <li className="relative pl-6 before:absolute before:left-1.5 before:top-[10px] before:h-1.5 before:w-1.5 before:rounded-full before:bg-brand before:content-['']" {...props} />
       );
     },
     svg: (props: any) => {

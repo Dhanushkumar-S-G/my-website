@@ -24,8 +24,8 @@ export const Highlight = ({
     <span
       className={cn(
         "font-medium rounded-sm px-1 py-0.5 \
-         bg-[#9441F5]/18 text-[#7A3FEA] \
-         dark:bg-[#9441F5]/25 dark:text-[#C9A8FF]",
+         bg-brand/30 text-foreground \
+         dark:bg-brand/15 dark:text-brand",
         className
       )}
     >
