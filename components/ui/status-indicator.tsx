@@ -20,7 +20,7 @@ const getStateColors = (state: StatusIndicatorProps["state"]) => {
       return { dot: "bg-yellow-500", ping: "bg-yellow-300" };
     case "idle":
     default:
-      return { dot: "bg-muted-foreground", ping: "bg-muted-foreground" };
+      return { dot: "bg-slate-700", ping: "bg-slate-400" };
   }
 };
 
@@ -72,7 +72,7 @@ const StatusIndicator: React.FC<StatusIndicatorProps> = ({
       {label && (
         <p
           className={cn(
-            "text-sm text-muted-foreground",
+            "text-sm text-slate-700 dark:text-slate-300",
             labelClassName
           )}
         >
