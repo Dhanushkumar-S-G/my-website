@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Archivo, Archivo_Black } from "next/font/google";
 import { GoogleTagManager } from '@next/third-parties/google';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
@@ -15,6 +15,19 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Archivo Black headings on an Archivo body
+const archivo = Archivo({
+  variable: "--font-archivo",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-archivo-black",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -33,7 +46,7 @@ export default function RootLayout({
       <GoogleTagManager gtmId="G-XQZ9W51EBZ" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${archivo.variable} ${archivoBlack.variable} antialiased`}
       >
         
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
